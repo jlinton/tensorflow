@@ -512,15 +512,17 @@ def tf_repositories(path_prefix = "", tf_repo_name = ""):
         ],
     )
 
-    # WARNING: make sure ncteisen@ and vpai@ are cc-ed on any CL to change the below rule
+    # patch in only the gittid commits needed
+    # upgrading to a version recent enough to have those commits causes other problems
+    # the easiest way to do this with a new repo, rather than creative bazel hacks
     tf_http_archive(
         name = "grpc",
-        sha256 = "67a6c26db56f345f7cee846e681db2c23f919eba46dd639b09462d1b6203d28c",
-        strip_prefix = "grpc-4566c2a29ebec0835643b972eb99f4306c4234a3",
+        sha256 = "750c9ebc210f8c549b87c0ffedd3b7d3e6960ebc9b47a63334443b3b8891b513",
+        strip_prefix = "grpc-037534cdbbf77b14a9081c81e9942a30beb3f386",
         system_build_file = clean_dep("//third_party/systemlibs:grpc.BUILD"),
         urls = [
-            "https://storage.googleapis.com/mirror.tensorflow.org/github.com/grpc/grpc/archive/4566c2a29ebec0835643b972eb99f4306c4234a3.tar.gz",
-            "https://github.com/grpc/grpc/archive/4566c2a29ebec0835643b972eb99f4306c4234a3.tar.gz",
+            "https://github.com/jlinton/grpc/archive/037534cdbbf77b14a9081c81e9942a30beb3f386.tar.gz",
+            "https://github.com/jlinton/grpc/archive/037534cdbbf77b14a9081c81e9942a30beb3f386.tar.gz",
         ],
     )
 
